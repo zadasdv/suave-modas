@@ -1,0 +1,5 @@
+Suave Modas - site estático (demonstração)
+Publicação: envie o conteúdo desta pasta (index.html na raiz) para Vercel, Netlify ou qualquer hospedagem de site estático. Use HTTPS.
+Os arquivos vercel.json e _headers aplicam cabeçalhos de segurança (Vercel e Netlify). Em outra hospedagem, configure equivalentes.
+WhatsApp e Instagram: edite CONFIG no início do bloco <script> de index.html.
+Produtos: edite a lista P no mesmo bloco. Preços e tamanhos atuais são de demonstração.
