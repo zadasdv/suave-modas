@@ -85,7 +85,7 @@ select,.search{height:40px;border:1px solid var(--line);background:var(--card);c
 .edit h2{font-size:clamp(34px,5.4vw,70px)}.edit p{max-width:44ch;opacity:.85}.edit .art{aspect-ratio:4/5;height:auto}
 @media(max-width:760px){.edit .wrap,.brand .wrap{grid-template-columns:1fr}}
 .looks{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}@media(max-width:760px){.looks{grid-template-columns:1fr}}
-.look{background:var(--card);border:1px solid var(--line);padding:12px;text-align:left}.look .pair{display:grid;grid-template-columns:1fr 1fr;gap:8px;aspect-ratio:3/2}.look h3{font:500 22px var(--serif);margin:14px 0 4px}.look p{margin:0;color:var(--mut);font-size:14px}
+.look{background:var(--card);border:1px solid var(--line);padding:12px;text-align:left}.look{display:block;width:100%;cursor:pointer;color:inherit;font:inherit}.look .pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}.pc{position:relative;display:block;aspect-ratio:3/4;overflow:hidden}.pc .art{position:absolute;inset:0;width:100%;height:100%}.look h3{font:500 22px var(--serif);margin:14px 0 4px}.look p{margin:0;color:var(--mut);font-size:14px}
 .ben{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-block:1px solid var(--line)}.ben div{padding:26px 20px;border-right:1px solid var(--line)}.ben div:last-child{border:0}.ben h3{font:500 22px var(--serif)}.ben p{margin:6px 0 0;color:var(--mut);font-size:15px}
 @media(max-width:760px){.ben{grid-template-columns:1fr}.ben div{border:0;border-bottom:1px solid var(--line)}}
 .brand .wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:48px}.brand h2{font-size:clamp(32px,4.6vw,56px)}
@@ -302,7 +302,7 @@ $("#fCat").innerHTML='';chips($("#fCat"),["Camisas de time","Bonés","Conjuntos"
 $("#fCol").insertAdjacentHTML("beforeend",Object.keys(COLORS).map(c=>`<button class="sw" data-v="${c}" style="background:${COLORS[c]}" aria-label="${c}" aria-pressed="false" title="${c}"></button>`).join(""));
 $("#cats").innerHTML=["Camisas de time","Bonés","Conjuntos"].map(c=>{const p=P.find(x=>x.cat===c);return `<a class="cat" href="#catalogo" data-go="${c}">${art(p,p.colors[0],false)}<span>${c}</span></a>`}).join("");
 const LK=[["Dia de jogo",0,4,"Camisa e boné para torcer com estilo."],["Time do coração",2,3,"Camisa branca com boné aba reta."],["Look completo",6,5,"Conjunto preto e dourado com boné."]];
-$("#looks").innerHTML=LK.map(l=>`<button class="look" data-look="${l[1]}"><div class="pair"><span style="display:block;height:100%">${art(P[l[1]],P[l[1]].colors[0],false)}</span><span style="display:block;height:100%">${art(P[l[2]],P[l[2]].colors[0],false)}</span></div><h3>${l[0]}</h3><p>${l[3]}</p></button>`).join("");
+$("#looks").innerHTML=LK.map(l=>`<button class="look" data-look="${l[1]}"><div class="pair"><span class="pc">${art(P[l[1]],P[l[1]].colors[0],false)}</span><span class="pc">${art(P[l[2]],P[l[2]].colors[0],false)}</span></div><h3>${l[0]}</h3><p>${l[3]}</p></button>`).join("");
 const hi=i=>{const p=P[i];return `<img src="${IMG[p.ph]}" alt="" style="object-position:${p.pos[0]}% ${p.pos[1]}%">`};$("#hp1").innerHTML=hi(6);$("#hp2").innerHTML=hi(1);$("#edArt").innerHTML=art(P[6]);
 saveFavs();sync();render();
 </script>
